@@ -6,7 +6,7 @@ import { useGlobalContext } from "../layout/context";
 const Navbar = () => {
   const { openSidebar } = useGlobalContext();
   return (
-    <nav className='bg-sky-50 fixed shadow-md flex justify-between items-center p-5 px-10 font-bold text-sky-600 w-screenmd:w-3/4 sm:ml-auto md:right-0 top-0'>
+    <nav className='bg-sky-50 fixed shadow-md flex justify-between items-center p-5 px-10 font-bold text-sky-600 w-screen md:w-3/4 sm:ml-auto md:right-0 top-0'>
       <div className='md:hidden'>
         <MdOutlineMenu className='text-2xl' onClick={openSidebar} />
       </div>

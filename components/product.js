@@ -10,7 +10,7 @@ const Product = ({ id, image, price, title }) => {
         <img className='h-40 object-contain p-1 pt-3' src={image} alt='' />
 
         <h4 className='my-2 font-bold text-sm p-2'>{title.slice(0, 25)}...</h4>
-        <h4 className='font-bold text-xl text-red-400'>${price}</h4>
+        <h4 className='font-bold text-2xl text-red-500'>${price}</h4>
         <div className='flex w-full font-bold'>
           <button className='bg-sky-200 text-sky-500 text-xs p-2 w-fit flex items-center justify-center'>
             <FiMoreHorizontal />

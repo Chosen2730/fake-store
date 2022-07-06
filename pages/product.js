@@ -23,7 +23,7 @@ const product = ({ data }) => {
             <BsSearch />
           </form>
           <div
-            className={`${style.overflowX} flex space-x-4 text-sm p-2 items-center my-5 w-full`}
+            className={`${style.overflowX} flex space-x-4 text-sm p-2 items-center my-5 w-full md:justify-center`}
           >
             {categories.map((cat, i) => {
               return (
