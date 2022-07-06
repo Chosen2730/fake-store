@@ -5,3 +5,21 @@
   background-position: center;
   background-size: cover;
 }
+
+.overflow {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.overflow::-webkit-scrollbar {
+  display: none;
+}
+.overflowX {
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* justify-content: center; */
+}
+.overflowX::-webkit-scrollbar {
+  display: none;
+}

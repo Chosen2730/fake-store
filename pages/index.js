@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div
-        className={`${style.login} flex min-h-screen flex-col items-center justify-center py-2 bg-gray-500`}
+        className={`${style.login} flex min-h-screen flex-col items-center py-2 bg-gray-500`}
       >
         <Head>
           <title>Shopping</title>

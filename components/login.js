@@ -15,7 +15,7 @@ const Login = () => {
           alt='l0go'
         />
       </div>
-      <main className='bg-sky-900 p-8 text-gray-300'>
+      <main className='bg-sky-900 p-8 text-sky-100'>
         <h1 className='font-bold text-2xl text-center capitalize my-4'>
           Welcome, please Login!
         </h1>
@@ -24,7 +24,7 @@ const Login = () => {
             Username
           </label>
           <input
-            className='block p-2 mt-2 text-sm text-black mb-1 bg-sky-200'
+            className='block p-2 mt-2 text-sm text-sky-900 mb-1 bg-sky-200'
             type='name'
             id='name'
             required
@@ -33,7 +33,7 @@ const Login = () => {
             Password
           </label>
           <input
-            className='block p-2 mt-2 text-sm text-black mb-1 bg-sky-200'
+            className='block p-2 mt-2 text-sm text-sky-900 mb-1 bg-sky-200'
             type='password'
             id='password'
             required
