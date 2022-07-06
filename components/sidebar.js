@@ -9,15 +9,17 @@ import {
 import user from "../images/user.png";
 import style from "../styles/login.module.css";
 import { useGlobalContext } from "../layout/context";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useGlobalContext();
+  const router = useRouter();
   return (
     <aside
       className={
         isSidebarOpen
-          ? ` ${style.overflow} bg-sky-900 text-sm p-4 text-sky-200 w-4/6 sm:w-1/3 md:w-1/4 fixed top-0 h-screen transition duration-200 md:translate-x-0`
-          : ` ${style.overflow} bg-sky-900 text-sm p-4 text-sky-200 w-4/6 sm:w-1/3 md:w-1/4 fixed top-0 h-screen transition duration-200 md:translate-x-0 -translate-x-full`
+          ? ` ${style.overflow} bg-sky-900 text-sm p-4 text-sky-200 w-5/6 sm:w-1/3 md:w-1/4 fixed top-0 h-screen transition duration-200 md:translate-x-0`
+          : ` ${style.overflow} bg-sky-900 text-sm p-4 text-sky-200 w-5/6 sm:w-1/3 md:w-1/4 fixed top-0 h-screen transition duration-200 md:translate-x-0 -translate-x-full`
       }
     >
       <div className='sm:hidden'>
@@ -59,13 +61,11 @@ const Sidebar = () => {
         </div>
       </div>
       <hr />
-      <div className='my-3'>
-        <a href='/'>
-          <div className='flex gap-2 items-center'>
-            <MdOutlineLogout className='dash_icons' />
-            <h4 className='logout_icon'>Logout</h4>
-          </div>
-        </a>
+      <div className='my-3 cursor-pointer' onClick={() => router.push("/")}>
+        <div className='flex gap-2 items-center'>
+          <MdOutlineLogout className='dash_icons' />
+          <h4 className='logout_icon'>Logout</h4>
+        </div>
       </div>
     </aside>
   );
