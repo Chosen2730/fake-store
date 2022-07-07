@@ -54,7 +54,7 @@ const product = ({ data }) => {
               return (
                 <h4
                   key={i}
-                  className='hover:border-b-2 border-b-2 border-b-transparent cursor-pointer hover:border-sky-500 font-bold uppercase text-sky-500 p-2 whitespace-nowrap'
+                  className='hover:border-b-2 border-b-2 border-b-transparent cursor-pointer hover:border-sky-500 font-bold uppercase text-sky-500 p-2 whitespace-nowrap select-none'
                   onClick={() => router.push(`/product/?cat=${cat}`)}
                 >
                   {cat}
