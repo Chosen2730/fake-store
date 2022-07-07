@@ -1,10 +1,10 @@
 import React from "react";
-import Product from "../components/product";
 import { useEffect } from "react";
-import { useGlobalContext } from "../layout/context";
-import ProductLayout from "../layout/productLayout";
+import Product from "../../components/product";
+import { useGlobalContext } from "../../layout/context";
+import ProductLayout from "../../layout/productLayout";
 
-const product = ({ data }) => {
+const category = ({ data }) => {
   const { products, setProducts } = useGlobalContext();
   useEffect(() => {
     setProducts(data);
@@ -23,10 +23,12 @@ const product = ({ data }) => {
   );
 };
 
-export default product;
+export default category;
 
-export const getStaticProps = async () => {
-  const res = await fetch(`https://fakestoreapi.com/products`);
+export const getServerSideProps = async ({ params }) => {
+  const res = await fetch(
+    `https://fakestoreapi.com/products/category/${params.cat}`
+  );
   const data = await res.json();
 
   return {
