@@ -3,10 +3,35 @@ import Layout from "../layout/layout";
 import { BsSearch } from "react-icons/bs";
 import style from "../styles/login.module.css";
 import Product from "../components/product";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useGlobalContext } from "../layout/context";
 
 const product = ({ data }) => {
-  const categories = ["all", ...new Set(data.map(({ category }) => category))];
+  const { products, setProducts } = useGlobalContext();
+  const router = useRouter();
+  const categories = [
+    "jewelery",
+    "men's clothing",
+    "electronics",
+    "women's clothing",
+  ];
 
+  useEffect(() => {
+    setProducts(data);
+  }, [data]);
+
+  const getAllProducts = async () => {
+    const res = await fetch(`https://fakestoreapi.com/products`);
+    const allProducts = await res.json();
+    setProducts(allProducts);
+  };
+
+  // useEffect(() => {
+  //   getAllProducts();
+  // }, []);
+
+  console.log(products);
   return (
     <>
       <Layout>
@@ -30,6 +55,7 @@ const product = ({ data }) => {
                 <h4
                   key={i}
                   className='hover:border-b-2 border-b-2 border-b-transparent cursor-pointer hover:border-sky-500 font-bold uppercase text-sky-500 p-2 whitespace-nowrap'
+                  onClick={() => router.push(`/product/?cat=${cat}`)}
                 >
                   {cat}
                 </h4>
@@ -37,7 +63,7 @@ const product = ({ data }) => {
             })}
           </div>
           <div className='my-4 grid sm:grid-cols-3 lg:grid-cols-4 justify-center items-center gap-8 '>
-            {data.map((product) => {
+            {products.map((product) => {
               return <Product key={product.id} {...product} />;
             })}
           </div>
@@ -48,11 +74,39 @@ const product = ({ data }) => {
 };
 
 export default product;
-export const getStaticProps = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
+
+export const getServerSideProps = async (context) => {
+  const cat = context.query.cat;
+  const url = `https://fakestoreapi.com/products/category/${cat}`;
+  const res = await fetch(url);
   const data = await res.json();
 
   return {
     props: { data: data },
   };
 };
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`https://fakestoreapi.com/products`);
+//   const data = await res.json();
+
+//   const paths = data.map((obj) => {
+//     return {
+//       params: { cat: obj.category },
+//     };
+//   });
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+// export const getStaticProps = async (context) => {
+//   const cat = context.query.cat;
+//   const res = await fetch(`https://fakestoreapi.com/products/category/${cat}`);
+//   const data = await res.json();
+
+//   return {
+//     props: { data },
+//   };
+// };

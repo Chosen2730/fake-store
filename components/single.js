@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "./../context";
-import { MdAddShoppingCart } from "react-icons/md";
 
 const SingleProduct = ({ title, image, id, description, price }) => {
-  const [num, setNum] = useState(1);
-  const [isAdded, setIsAdded] = useState(false);
   const { addProduct } = useGlobalContext();
-  const desc = description.slice(0, 55);
 
   useEffect(() => {
     const timeout = setTimeout(() => {

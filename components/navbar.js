@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className='md:hidden'>
         <MdOutlineMenu className='text-2xl' onClick={openSidebar} />
       </div>
-      <div className='w-1/5 sm:w-1/4 lg:w-1/5 flex flex-col justify-center items-center'>
+      <div className='w-1/4 lg:w-1/5 flex flex-col justify-center items-center'>
         <Image layout='' src={logo} alt='logo' />
       </div>
       <div className=''>
